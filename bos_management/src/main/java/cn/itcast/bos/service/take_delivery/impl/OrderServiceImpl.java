@@ -78,9 +78,7 @@ public class OrderServiceImpl implements OrderService {
 						+ order.getSendAddress())
 				.accept(MediaType.APPLICATION_JSON).get(String.class);
 		if (fixedAreaId != null) {
-			//如果fixedAreaId不为空代表可以去查询定区信息了
 			FixedArea fixedArea = fixedAreaRepository.findOne(fixedAreaId);
-			//实际开发中，会根据快递的工作时间和派件数量进行匹配然后获得快递员
 			Courier courier = fixedArea.getCouriers().iterator().next();
 			if (courier != null) {
 				// 自动分单成功
@@ -189,6 +187,11 @@ public class OrderServiceImpl implements OrderService {
 		order.setOrderType("1");
 		// 保存订单
 		orderRepository.save(order);
+	}
+
+	@Override
+	public Order findByOrderNum(String orderNum) {
+		return orderRepository.findByOrderNum(orderNum);
 	}
 
 }

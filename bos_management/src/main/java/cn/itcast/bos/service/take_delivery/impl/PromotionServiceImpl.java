@@ -40,6 +40,7 @@ public class PromotionServiceImpl implements PromotionService {
 		PageBean<Promotion> pageBean = new PageBean<Promotion>();
 		pageBean.setTotalCount(pageData.getTotalElements());
 		pageBean.setPageData(pageData.getContent());
+
 		return pageBean;
 	}
 
