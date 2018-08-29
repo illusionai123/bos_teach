@@ -118,6 +118,9 @@ public class WayBillServiceImpl implements WayBillService {
 			}
 			if (StringUtils.isNoneBlank(wayBill.getSendProNum())) {
 				// 速运类型 等值查询
+				//TermQueryB 词条匹配
+				//queryStringQuery  速运当日
+				//WildcardQuery  模糊匹配
 				QueryBuilder termQuery = new TermQueryBuilder("sendProNum",
 						wayBill.getSendProNum());
 				query.must(termQuery);

@@ -20,8 +20,6 @@
 		<property name="user" value="${jdbc.user}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
-
-
 	<!-- spring 整合 JPA配置 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
